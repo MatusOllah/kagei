@@ -1,6 +1,6 @@
 # kagei
  
-**kagei** (Kage Interpreter) is a CLI tool for testing Kage shaders.
+**kagei** (Kage Interpreter) is a CLI tool for testing [Kage shaders](https://ebitengine.org/en/documents/shader.html).
 
 ## Building & Installing
 
