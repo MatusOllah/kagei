@@ -6,7 +6,9 @@
 
 1. Install Go
 
-2. Run: `go install github.com/MatusOllah/kagei@latest`
+2. Install a C compiler (only on macOS, Linux and FreeBSD)
+
+3. Run: `go install github.com/MatusOllah/kagei@latest`
 
 ## Usage
 
