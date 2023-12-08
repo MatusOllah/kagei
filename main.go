@@ -2,6 +2,9 @@ package main
 
 import (
 	"fmt"
+	"image"
+	img_color "image/color"
+	"image/png"
 	"log"
 	"log/slog"
 	"os"
@@ -63,10 +66,17 @@ func (g *Game) Update() error {
 }
 
 func (g *Game) Draw(screen *ebiten.Image) {
+	screen.Fill(img_color.Black)
+
 	op := &ebiten.DrawRectShaderOptions{}
 	copy(op.Images[:], g.images)
 	op.Uniforms = g.uniforms
 	screen.DrawRectShader(screen.Bounds().Dx(), screen.Bounds().Dy(), g.shader, op)
+
+	if opts.ExportImage != "" {
+		exportImage(screen, opts.ExportImage)
+		os.Exit(0)
+	}
 
 	if opts.FPSCounter {
 		ebitenutil.DebugPrint(screen, fmt.Sprintf("FPS: %.2f", ebiten.ActualFPS()))
@@ -75,6 +85,22 @@ func (g *Game) Draw(screen *ebiten.Image) {
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
 	return opts.Width, opts.Height
+}
+
+func exportImage(img image.Image, path string) {
+	if opts.Verbose {
+		slog.Info("exporting image", "path", path)
+	}
+
+	f, err := os.Create(path)
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
+
+	if err := png.Encode(f, img); err != nil {
+		panic(err)
+	}
 }
 
 func main() {

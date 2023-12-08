@@ -13,4 +13,5 @@ var opts struct {
 	Image        map[int]string         `short:"I" long:"image" description:"Source images"`
 	Uniform      map[string]interface{} `short:"U" long:"uniform" description:"Uniform variables"`
 	ResizeImages bool                   `long:"resize-images" description:"Resize source images to window size"`
+	ExportImage  string                 `long:"export-image" description:"Export rendered image and exit"`
 }
