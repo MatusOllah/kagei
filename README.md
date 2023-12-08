@@ -1,4 +1,6 @@
 # kagei
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/MatusOllah/kagei)](https://goreportcard.com/report/github.com/MatusOllah/kagei)
  
 **kagei** (Kage Interpreter) is a CLI tool for testing [Kage shaders](https://ebitengine.org/en/documents/shader.html).
 
