@@ -12,7 +12,7 @@
 
 ## Usage
 
-To lookup a user run:
+To test a Kage shader run:
 
 ```shell
 kagei path/to/shader.kage
