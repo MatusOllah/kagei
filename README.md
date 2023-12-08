@@ -31,3 +31,4 @@ kagei path/to/shader.kage
 - `-I` - source image (for example `-I0:image.png`)
 - `-U` - uniform variables (for example `-Unum:69`)
 - `--resize-images` - resize source images
+- `--export-image` - export rendered image and exit (aka headless mode)
