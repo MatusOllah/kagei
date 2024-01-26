@@ -13,8 +13,6 @@ BINARY = ./bin/$(GOOS)-$(GOARCH)
 EXE = $(BINARY)/kagei$(shell go env GOEXE)
 
 # flags
-UPX_FLAGS = --best --lzma
-
 GO_GCFLAGS =
 GO_LDFLAGS =
 GO_FLAGS = -v
@@ -27,7 +25,7 @@ endif
 GO_FLAGS += -gcflags="$(GO_GCFLAGS)" -ldflags="$(GO_LDFLAGS)" -buildvcs=true
 
 .PHONY: all
-all: build upx
+all: build
 
 .PHONY: build
 build: clean
@@ -35,12 +33,6 @@ build: clean
 
 	$(GO) get
 	GOOS=$(GOOS) GOARCH=$(GOARCH) $(GO) build $(GO_FLAGS) -o $(EXE)
-
-.PHONY: upx
-upx:
-ifeq ($(IS_RELEASE),true)
-	upx $(UPX_FLAGS) $(EXE)
-endif
 
 .PHONY: clean
 clean:
