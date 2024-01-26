@@ -29,6 +29,8 @@ kagei path/to/shader.kage
 - `--fps-counter` - FPS counter
 - `--vsync` - VSync
 - `-I` - source image (for example `-I0:image.png`)
-- `-U` - uniform variables (for example `-Unum:69`)
+- `--uniform-bool` - uniform bool variable (for example `--uniform-bool Foo:true`)
+- `--uniform-int` - uniform int variable (for example `--uniform-int Foo:1`)
+- `--uniform-float` - uniform float variable (for example `--uniform-float Foo:0.5`)
 - `--resize-images` - resize source images
 - `--export-image` - export rendered image and exit (aka headless mode)
