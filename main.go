@@ -17,7 +17,7 @@ import (
 	"github.com/jessevdk/go-flags"
 )
 
-var Version string = "1.1.0"
+var Version string = "1.2.0"
 
 type Game struct {
 	shader   *ebiten.Shader
