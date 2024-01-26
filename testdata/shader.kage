@@ -1,5 +1,7 @@
 package main
 
+var Opacity float
+
 func Fragment(dstPos vec4, srcPos vec2, color vec4) vec4 {
-    return imageSrc0UnsafeAt(srcPos).brga
+    return imageSrc0UnsafeAt(srcPos).rgba * Opacity
 }
