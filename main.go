@@ -54,10 +54,21 @@ func NewGame() (*Game, error) {
 		slog.Info("done loading source images")
 	}
 
+	uniforms := make(map[string]interface{})
+	for k, v := range opts.UniformBool {
+		uniforms[k] = v
+	}
+	for k, v := range opts.UniformInt {
+		uniforms[k] = v
+	}
+	for k, v := range opts.UniformFloat {
+		uniforms[k] = v
+	}
+
 	return &Game{
 		shader:   s,
 		images:   images,
-		uniforms: opts.Uniform,
+		uniforms: uniforms,
 	}, nil
 }
 
