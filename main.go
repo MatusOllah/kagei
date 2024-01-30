@@ -101,8 +101,17 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		os.Exit(0)
 	}
 
+	var str string
 	if opts.FPSCounter {
-		ebitenutil.DebugPrint(screen, fmt.Sprintf("FPS: %.2f", ebiten.ActualFPS()))
+		str += fmt.Sprintf("FPS: %.2f\n", ebiten.ActualFPS())
+	}
+	if opts.ShowUniforms {
+		str += "Uniforms: "
+		str += strings.TrimPrefix(fmt.Sprintf("%#v\n", g.uniforms), "map[string]interface {}")
+	}
+
+	if opts.FPSCounter || opts.ShowUniforms {
+		ebitenutil.DebugPrint(screen, str)
 	}
 }
 

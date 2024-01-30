@@ -10,6 +10,7 @@ var opts struct {
 	Width           int                `short:"w" long:"width" description:"Window width" default:"640"`
 	Height          int                `short:"g" long:"height" description:"Window height" default:"480"`
 	FPSCounter      bool               `long:"fps-counter" description:"Show FPS counter"`
+	ShowUniforms    bool               `long:"show-uniforms" description:"Show uniform variables"`
 	VSync           bool               `long:"vsync" description:"Enable VSync"`
 	Image           map[int]string     `short:"I" long:"image" description:"Source images"`
 	UniformBool     map[string]bool    `long:"uniform-bool" description:"Uniform bool variable"`
