@@ -9,8 +9,10 @@ import (
 	"log/slog"
 	"os"
 	"runtime"
+	"strings"
 	"time"
 
+	"github.com/MatusOllah/slicestrconv"
 	"github.com/fatih/color"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
@@ -64,6 +66,16 @@ func NewGame() (*Game, error) {
 	for k, v := range opts.UniformFloat {
 		uniforms[k] = v
 	}
+	for k, v := range opts.UniformVec {
+		uniforms[k] = v
+	}
+	for k, v := range opts.UniformIvec {
+		uniforms[k] = v
+	}
+
+	if opts.Verbose {
+		slog.Info("uniforms", "uniforms", uniforms)
+	}
 
 	return &Game{
 		shader:   s,
@@ -115,6 +127,32 @@ func exportImage(img image.Image, path string) {
 }
 
 func main() {
+	slicestrconv.Delimiter = ";" // for some reason comma doesn't work
+
+	opts.UniformVec = make(map[string][]float32)
+	opts.UniformVecFunc = func(s string) {
+		ss := strings.Split(s, ":")
+
+		theVec, err := slicestrconv.ParseFloat32Slice(ss[1], 10)
+		if err != nil {
+			panic(err)
+		}
+
+		opts.UniformVec[ss[0]] = theVec
+	}
+
+	opts.UniformIvec = make(map[string][]int)
+	opts.UniformIvecFunc = func(s string) {
+		ss := strings.Split(s, ":")
+
+		theVec, err := slicestrconv.ParseIntSlice(ss[1], 10)
+		if err != nil {
+			panic(err)
+		}
+
+		opts.UniformIvec[ss[0]] = theVec
+	}
+
 	if _, err := flags.NewParser(&opts, flags.HelpFlag|flags.IgnoreUnknown|flags.PassDoubleDash).Parse(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
