@@ -27,10 +27,16 @@ kagei path/to/shader.kage
 - `-w` - screen width
 - `-g` - screen height
 - `--fps-counter` - FPS counter
+- `--tps-counter` - TPS counter
+- `--show-uniforms` - show uniforms
 - `--vsync` - VSync
 - `-I` - source image (for example `-I0:image.png`)
 - `--uniform-bool` - uniform bool variable (for example `--uniform-bool Foo:true`)
 - `--uniform-int` - uniform int variable (for example `--uniform-int Foo:1`)
 - `--uniform-float` - uniform float variable (for example `--uniform-float Foo:0.5`)
+- `--uniform-vec` - uniform vecN variable (for example `--uniform-vec Foo:[1.1; 2.2; 3.3]`)
+- `--uniform-ivec` - uniform ivecN variable (for example `--uniform-vec Foo:[1; 2; 3]`)
+- `--uniform-json` - uniforms via JSON
+- `--uniform-json-file` - uniforms via a JSON file
 - `--resize-images` - resize source images
 - `--export-image` - export rendered image and exit (aka headless mode)
