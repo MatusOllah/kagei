@@ -105,12 +105,15 @@ func (g *Game) Draw(screen *ebiten.Image) {
 	if opts.FPSCounter {
 		str += fmt.Sprintf("FPS: %.2f\n", ebiten.ActualFPS())
 	}
+	if opts.TPSCounter {
+		str += fmt.Sprintf("TPS: %.2f\n", ebiten.ActualTPS())
+	}
 	if opts.ShowUniforms {
 		str += "Uniforms: "
 		str += strings.TrimPrefix(fmt.Sprintf("%#v\n", g.uniforms), "map[string]interface {}")
 	}
 
-	if opts.FPSCounter || opts.ShowUniforms {
+	if opts.FPSCounter || opts.TPSCounter || opts.ShowUniforms {
 		ebitenutil.DebugPrint(screen, str)
 	}
 }
