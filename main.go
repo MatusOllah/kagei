@@ -1,12 +1,14 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"image"
 	img_color "image/color"
 	"image/png"
 	"log"
 	"log/slog"
+	"maps"
 	"os"
 	"runtime"
 	"strings"
@@ -57,6 +59,7 @@ func NewGame() (*Game, error) {
 	}
 
 	uniforms := make(map[string]interface{})
+
 	for k, v := range opts.UniformBool {
 		uniforms[k] = v
 	}
@@ -71,6 +74,27 @@ func NewGame() (*Game, error) {
 	}
 	for k, v := range opts.UniformIvec {
 		uniforms[k] = v
+	}
+
+	if opts.UniformJSON != "" {
+		u := make(map[string]interface{})
+		if err := json.Unmarshal([]byte(opts.UniformJSON), &u); err != nil {
+			return nil, err
+		}
+		maps.Copy(uniforms, u)
+	}
+
+	if opts.UniformJSONFile != "" {
+		content, err := os.ReadFile(opts.UniformJSONFile)
+		if err != nil {
+			return nil, err
+		}
+
+		u := make(map[string]interface{})
+		if err := json.Unmarshal(content, &u); err != nil {
+			return nil, err
+		}
+		maps.Copy(uniforms, u)
 	}
 
 	if opts.Verbose {
@@ -189,10 +213,8 @@ func main() {
 		slog.Info("opts", "opts", fmt.Sprintf("%+v", opts))
 	}
 
-	ebiten.SetVsyncEnabled(false)
-	if opts.VSync {
-		ebiten.SetVsyncEnabled(true)
-	}
+	ebiten.SetVsyncEnabled(opts.VSync)
+	ebiten.SetTPS(ebiten.SyncWithFPS)
 
 	if opts.Verbose {
 		slog.Info("initializing game")

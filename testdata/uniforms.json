@@ -1,0 +1,9 @@
+{
+    "Opacity": 1,
+
+    "TestBool": true,
+    "TestInt": 69,
+    "TestFloat": 3.14,
+    "TestVec": [1.0, 2.0, 3.0, 4.0],
+    "TestIvec": [1, 2, 3, 4]
+}
