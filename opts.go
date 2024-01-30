@@ -2,8 +2,8 @@ package main
 
 var opts struct {
 	PosArgs struct {
-		ShaderPath string `description:"Path to Kage shader"`
-	} `positional-args:"yes" required:"yes"`
+		ShaderPath string `description:"Path to Kage shader" default:"shader.kage"`
+	} `positional-args:"yes"`
 
 	Version         bool               `long:"version" description:"Print version and exit"`
 	Verbose         bool               `short:"v" long:"verbose" description:"Print verbose information"`
