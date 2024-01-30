@@ -1,5 +1,5 @@
 # settings
-IS_RELEASE = false
+IS_RELEASE = true
 
 GOOS=$(shell go env GOOS)
 GOARCH=$(shell go env GOARCH)
