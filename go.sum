@@ -1,3 +1,5 @@
+github.com/MatusOllah/slicestrconv v1.0.0 h1:pxPN+vtYChJ8sl6Wp/5MGzeGg726omh5Sqow/lSbhgY=
+github.com/MatusOllah/slicestrconv v1.0.0/go.mod h1:6yGdcrIrZzDh/wb7O/eWs8h2Xy+sdnonvWfCysOY+a4=
 github.com/ebitengine/purego v0.5.0 h1:JrMGKfRIAM4/QVKaesIIT7m/UVjTj5GYhRSQYwfVdpo=
 github.com/ebitengine/purego v0.5.0/go.mod h1:ah1In8AOtksoNK6yk5z1HTJeUkC1Ez4Wk2idgGslMwQ=
 github.com/fatih/color v1.16.0 h1:zmkK9Ngbjj+K0yRhTVONQh1p/HknKYSlNT+vZCzyokM=

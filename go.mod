@@ -3,6 +3,7 @@ module github.com/MatusOllah/kagei
 go 1.21.1
 
 require (
+	github.com/MatusOllah/slicestrconv v1.0.0
 	github.com/fatih/color v1.16.0
 	github.com/hajimehoshi/ebiten/v2 v2.6.2
 	github.com/jessevdk/go-flags v1.5.0
