@@ -40,3 +40,9 @@ kagei path/to/shader.kage
 - `--uniform-json-file` - uniforms via a JSON file
 - `--resize-images` - resize source images
 - `--export-image` - export rendered image and exit (aka headless mode)
+
+## License
+
+MIT
+
+FNF Boyfriend - Apache license
