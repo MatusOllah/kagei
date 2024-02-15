@@ -4,7 +4,7 @@
 
 **kagei** (Kage Interpreter) is a CLI tool for testing [Kage shaders](https://ebitengine.org/en/documents/shader.html).
 
-## Building & Installing
+## Building & Installing from source
 
 1. Install Go
 
