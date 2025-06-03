@@ -44,5 +44,3 @@ kagei path/to/shader.kage
 ## License
 
 MIT
-
-FNF Boyfriend - Apache license
